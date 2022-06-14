@@ -4,7 +4,7 @@
 //모듈
 const express = require("express");
 const app = express();
-const bodyParser = require("body-paresr");
+const bodyParser = require("body-parser");
 // 앱 세팅
 app.set("views", "./src/views"); //views 파일에 저장할것
 app.set("view engine", "ejs" ); //view 엔진을 ejs라는 뷰엔진을 사용할것

@@ -20,6 +20,7 @@ const process = {
 
 module.exports = {
     output,
+    process,
 };
 
 //index.js와 연결해줌

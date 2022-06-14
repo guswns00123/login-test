@@ -1,5 +1,9 @@
 "use strict";
 
+const users = {
+    id : ["jun", "yoo"],
+    psword : ["123", "1234"],
+};
 
 const output = {
     home : (req,res) => {
@@ -14,7 +18,21 @@ const output = {
 
 const process = {
     login : (req,res) => {
-        console.log(req.body);
+        const id = req.body.id,
+        psword = req.body.psword;
+
+        if (users.id.includes(id) ){
+            const idx = users.id.indexOf(id);
+            if (users.psword[idx] === psword){
+                return res.json({
+                    success: true,
+                });
+            }
+        }
+        return res.json({
+            success:false,
+            msg:"false",
+        });
     },
 };
 

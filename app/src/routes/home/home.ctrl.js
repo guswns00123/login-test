@@ -11,6 +11,9 @@ const output = {
     login : (req,res) => {
         res.render("home/login"); //login.ejs와 연결
     },
+    register: (req,res) => {
+        res.render("home/register");
+    }
     
 }
 

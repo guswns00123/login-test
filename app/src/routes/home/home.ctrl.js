@@ -18,9 +18,9 @@ const output = {
 }
 
 const process = {
-    login : (req,res) => { //req.body => 클라이언트가 입력한 값들
+    login : async (req,res) => { //req.body => 클라이언트가 입력한 값들
         const user = new User(req.body); //그 값들을 User instance로 만듬
-        const response = user.login(); //그 user가 login method 호출
+        const response = await user.login(); //그 user가 login method 호출
         return res.json(response);
         
     },
@@ -28,7 +28,8 @@ const process = {
         const user = new User(req.body); 
         const response = user.register(); 
         return res.json(response);
-    }
+    },
+
 };
 
 module.exports = {

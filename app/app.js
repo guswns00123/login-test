@@ -7,14 +7,13 @@ const app = express();
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
 
-const fs = require("fs");
-
 
 
 dotenv.config();
 
 // 라우팅
 const home = require("./src/routes/home");
+const cookieParser = require("cookie-parser");
 
 
 
@@ -26,7 +25,7 @@ app.use(express.static(`${__dirname}/src/public`)); // dirname ==> app.js파일 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended:true}));
 //URL을 통해 전달되는 데이터에 한글, 공백 등 과 같은 문자가 포함될 경우 제대로 인식되지 않는 문제 해결
-
+app.use(cookieParser());
 
 app.use("/", home); // use -> 미들 웨어를 등록해주는 메서드.
 

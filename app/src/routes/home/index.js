@@ -8,6 +8,7 @@ const ctrl = require("./home.ctrl");
 router.get("/", ctrl.output.home);
 router.get("/login", ctrl.output.login);
 router.get("/register", ctrl.output.register);
+router.get("/notlogin", ctrl.output.home2);
 
 // router.get("/auth", ctrl.output.auth);
 

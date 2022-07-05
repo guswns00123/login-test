@@ -11,7 +11,10 @@ const output = {
         logger.info(`GET / 304 "홈 화면으로 이동`);
         res.render("home/index"); //index.ejs와 연결
     },
-    
+    home2 : (req,res) => {
+        logger.info(`GET / 304 "비로그인 화면으로 이동`);
+        res.render("home/index2");
+    },
     login : (req,res) => {
         logger.info(`GET /login 304 "로그인 화면으로 이동`);
         res.render("home/login"); //login.ejs와 연결
@@ -34,9 +37,8 @@ const process = {
     login : async (req,res) => { //req.body => 클라이언트가 입력한 값들
         const user = new User(req.body); //그 값들을 User instance로 만듬
         const response = await user.login(); //그 user가 login method 호출
-
         const token = user.token;
-        console.log(user.token);
+        
         const url = {
             method: "POST",
             path : "/login",
